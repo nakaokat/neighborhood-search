@@ -1,0 +1,54 @@
+body{
+
+}
+
+h1{
+    font-weight: 200;
+}
+
+h2{
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.header{
+    padding: 6px 0;
+    background-color: rgba(74, 81, 113, 1);;
+    border-bottom: 1px solid #999999;
+    color: white;
+}
+
+.search-area{
+    padding: 36px 0;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.bgimg {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    z-index:-1;
+    opacity:1;
+}
+
+.wrapper{
+    background-color: rgba(200, 200, 200, 0.7);
+    min-height: 600px;
+}
+
+.footer{
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    height: 180px;
+}
+
+/* Google Street View */
+.google-street-view-container{
+    
+}
+
+/* New York Times */
+.nytimes-container img{
+    max-width: 300px;
+}

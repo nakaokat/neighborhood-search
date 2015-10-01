@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Your Moving Companion</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <img class="bgimg" data-bind="attr: {src: bgSrc}">
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <h2 id="greeting" class="greeting">どこに住みたい？　Where do you want to live?</h2>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="container">
+                <div class="row text-center">
+                    <h2>調べたい場所を入力してください</h2>
+                </div>
+                <div class="row search-area text-center">
+                    <form data-bind="submit: submitCityStreet">
+                        <label for="street">Street: </label><input type="text" data-bind="value: street">
+                        <label for="city">City: </label><input type="text" data-bind="value: city">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        <div class="google-street-view-container">
+                            <h3>Google Street View</h3>
+                            <img class="img-responsive img-thumbnail" data-bind="attr:{src: bgSrc}">
+                        </div>
+                        <div class="nytimes-container">
+                            <h3  data-bind="text: nytimesHead"></h3>
+                            <ul class="article-list" data-bind="foreach: articles">
+                                <h4 data-bind="text: $data.headline.main">
+                                </h4>
+                                <p data-bind="text:$data.snippet"></p>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wikipedia-container col-md-4 col-sm-4" >
+                        <h3>Wikipedia記事（日本語）</h3>
+                        <div data-bind="foreach: wikipediaArticles">
+                            <h4 data-bind="text: $data.title">Relevant Wikipedia Links</h4>
+                            <div id="wikipedia-links" data-bind="html: $data.snippet"></div>
+                        </div>
+
+                        <h3>Wikipedia記事（英語）</h3>
+                        <div>
+                            <div data-bind="foreach: wikipediaEnglishArticles">
+                                <h4 data-bind="text: $data.title">Relevant Wikipedia Links</h4>
+                                <div id="wikipedia-links" data-bind="html: $data.snippet"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        About this page
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        GitHub
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/knockout-3.3.0.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
