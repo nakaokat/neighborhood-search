@@ -26,7 +26,7 @@ var ViewModel = function(){
         var URL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + self.city() +'&page=2&sort=newest&api-key=85fa5e753eb16f300f2c82cbce5c948f:15:62726826';
         $.getJSON(URL, function(data){
             articles = data.response.docs;
-            self.nytimesHead(self.nytimesHead() + " " + self.city());
+            self.nytimesHead("New York Times Articles" + " " + self.city());
             for (i = 0; i<articles.length; i++){
                 self.articles.push(articles[i]);
                 //$nytElem.append('<li class="article">' + '<a href="' + article.web_url + '">' + article.headline.main + '</a>' + '<p>' + article.snippet + '</p>' + '</li>');
