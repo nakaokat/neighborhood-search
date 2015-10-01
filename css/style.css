@@ -11,6 +11,14 @@ h2{
     font-size: 18px;
 }
 
+h3{
+    font-weight: 100;
+}
+
+h4{
+    font-weight: 100;
+}
+
 .header{
     padding: 6px 0;
     background-color: rgba(74, 81, 113, 1);;
@@ -33,7 +41,7 @@ h2{
 }
 
 .wrapper{
-    background-color: rgba(200, 200, 200, 0.7);
+    background-color: rgba(255, 255, 255, .9);
     min-height: 600px;
 }
 
@@ -45,7 +53,7 @@ h2{
 
 /* Google Street View */
 .google-street-view-container{
-    
+
 }
 
 /* New York Times */

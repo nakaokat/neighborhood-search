@@ -15,6 +15,7 @@ var ViewModel = function(){
         getGoogleMapsImage();
         getNytimes();
         getWikipedia();
+        getWikipediaEnglish();
     }
 
     // New York Times
@@ -47,6 +48,9 @@ var ViewModel = function(){
             success: function(data, textStatus, jqXHR){
                 var searchResult = data.query.search;
                 for (i = 0; i<searchResult.length; i++){
+                    if (i > 5){
+                        break;
+                    }
                     //var requltURL = 'https://en.wikipedia.org/wiki/' + searchResult[i].title;
                     self.wikipediaArticles.push(searchResult[i]);
                     console.dir(searchResult[i])
@@ -57,6 +61,25 @@ var ViewModel = function(){
             }
         });
     }
+
+    var getWikipediaEnglish = function(){
+        var wikipediaURL = "https://en.wikipedia.org/w/api.php";
+        $.ajax(wikipediaURL, {
+            dataType: 'jsonp',
+            data: { action: 'query', list: 'search', srsearch: self.city(), format: 'json' },
+            success: function(data, textStatus, jqXHR){
+                var searchResult = data.query.search;
+                for (i = 0; i<searchResult.length; i++){
+                    if (i > 5){
+                        break;
+                    }
+                    self.wikipediaEnglishArticles.push(searchResult[i]);
+                }
+            }
+        });
+    }
+
+
 };
 
 ko.applyBindings(new ViewModel());
